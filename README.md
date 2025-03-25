@@ -1,5 +1,5 @@
-# study-spring-mvc-hibernate-angular
+# study-spring-mvc-hibernate
 học java web 2025
 -- database: mysql
--- frontend: angular
+-- frontend: bootrap-jsp
 -- backend: spring MVC
