@@ -52,14 +52,27 @@
     <h2>Quản Lý</h2>
     <div>
         <!-- Hiển thị cho Admin -->
-        <if test="${username eq 'admin'}">
-            <a href="/banhang/hien-thi" class="btn btn-primary btn-block">Quản lý Bán hàng</a>
-            <a href="/hoadon/hien-thi" class="btn btn-primary btn-block">Quản lý Hóa đơn</a>
+        <c:if test="${username eq 'admin'}">
             <a href="/sanpham/hien-thi" class="btn btn-primary btn-block">Quản lý Sản phẩm</a>
             <a href="/khachhang/hien-thi" class="btn btn-primary btn-block">Quản lý Khách hàng</a>
             <a href="/nhanvien/hien-thi" class="btn btn-primary btn-block">Quản lý Nhân viên</a>
-            <a href="/thongke/hien-thi" class="btn btn-primary btn-block">Quản lý Thống kê</a>
-        </if>
+            <a href="/sanphamchitiet/hien-thi" class="btn btn-primary btn-block">Quản lý Sản phẩm Chi tiết</a>
+            <a href="/hoadon/hien-thi" class="btn btn-primary btn-block">Quản lý Hóa đơn</a>
+            <a href="/mausac/hien-thi" class="btn btn-primary btn-block">Quản lý Màu sắc</a>
+            <a href="/kichthuoc/hien-thi" class="btn btn-primary btn-block">Quản lý Kích thước</a>
+            <a href="/hoadonchitiet/hien-thi" class="btn btn-primary btn-block">Quản lý Hóa đơn Chi tiết</a>
+        </c:if>
+
+        <!-- Hiển thị cho Nhân viên -->
+        <c:if test="${username eq 'employee'}">
+            <a href="/sanpham/hien-thi" class="btn btn-primary btn-block">Quản lý Sản phẩm</a>
+            <a href="/khachhang/hien-thi" class="btn btn-primary btn-block">Quản lý Khách hàng</a>
+            <a href="/nhanvien/hien-thi" class="btn btn-primary btn-block">Quản lý Nhân viên</a>
+            <a href="/sanphamchitiet/hien-thi" class="btn btn-primary btn-block">Quản lý Sản phẩm Chi tiết</a>
+            <a href="/mausac/hien-thi" class="btn btn-primary btn-block">Quản lý Màu sắc</a>
+            <a href="/kichthuoc/hien-thi" class="btn btn-primary btn-block">Quản lý Kích thước</a>
+        </c:if>
+
         <!-- Nút Quay lại / Đăng xuất -->
         <a href="/dangnhap/logout" class="btn btn-secondary btn-block">Đăng xuất</a>
     </div>
