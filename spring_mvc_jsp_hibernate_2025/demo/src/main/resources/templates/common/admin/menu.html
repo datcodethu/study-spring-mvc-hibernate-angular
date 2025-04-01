@@ -1,10 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<div th:fragment="menuFragment" >
+    <!-- menu profile quick info -->
+    <div class="profile clearfix">
+        <div class="profile_pic">
+            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+        </div>
+        <div class="profile_info">
+            <span>Welcome,</span>
+            <h2>John Doe</h2>
+        </div>
+    </div>
+    <!-- /menu profile quick info -->
 
+    <br />
+
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        <div class="menu_section">
+            <h3>Home</h3>
+            <ul class="nav side-menu">
+                <li><a><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="index2.html">Dashboard2</a></li>
+                        <li><a href="index3.html">Dashboard3</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Quản trị </h3>
+            <ul class="nav side-menu">
+                <li><a><i class="fa fa-edit"></i> Quản lý Hoá đơn <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="form.html">Hoá đơn</a></li>
+                        <li><a href="form_advanced.html">Sản phẩm</a></li>
+                        <li><a href="/admin/client">Khách hàng</a></li>
+                        <li><a href="form_wizards.html">Nhân viên</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-edit"></i> Quản lý Sản phẩm <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="form.html">Hoá đơn</a></li>
+                        <li><a href="form_advanced.html">Sản phẩm</a></li>
+                        <li><a href="/admin/client">Khách hàng</a></li>
+                        <li><a href="form_wizards.html">Nhân viên</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-edit"></i> Quản lý Khách hàng <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="form.html">Hoá đơn</a></li>
+                        <li><a href="form_advanced.html">Sản phẩm</a></li>
+                        <li><a href="/admin/client">Khách hàng</a></li>
+                        <li><a href="form_wizards.html">Nhân viên</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-edit"></i> Quản lý Nhân viên <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="form.html">Hoá đơn</a></li>
+                        <li><a href="form_advanced.html">Sản phẩm</a></li>
+                        <li><a href="/admin/client">Khách hàng</a></li>
+                        <li><a href="form_wizards.html">Nhân viên</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-bar-chart-o"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="chartjs.html">Hoá đơn </a></li>
+                        <li><a href="chartjs2.html">Sản phẩm</a></li>
+                        <li><a href="morisjs.html">Khách hàng</a></li>
+                        <li><a href="echarts.html">Nhân viên</a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+    <!-- /sidebar menu -->
+</div>
 </body>
 </html>

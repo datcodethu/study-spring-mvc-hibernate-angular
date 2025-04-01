@@ -2,13 +2,15 @@ package com.example.demo.controller.ui;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class Test {
     @GetMapping("/")
     public String home() {
-        return "index"; // Tự động tìm index.html trong thư mục templates
+        return "index2"; // Tự động tìm index.html trong thư mục templates
     }
+
+    @GetMapping("/admin/client")
+    public String client() { return "views/admin/client/list"; }
+
 }

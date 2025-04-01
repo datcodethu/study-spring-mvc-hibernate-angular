@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/admin_layout">
+
+<head>
+    <title>Home</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <div class="container mt-4">
+            <h2 class="mb-3 text-center">Quản Lý Khách Hàng</h2>
+            <div class="row mb-3 align-items-center">
+                <div class="col-md-5">
+                    <input type="text" id="searchInput" class="form-control" placeholder="🔍 Tìm kiếm khách hàng..." onkeyup="searchTable()">
+                </div>
+                <div class="col-md-4">
+                    <select id="sortSelect" class="form-select" onchange="sortTable()">
+                        <option value="">🔽 Sắp xếp</option>
+                        <option value="asc">A → Z</option>
+                        <option value="desc">Z → A</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-end">
+                    <button class="btn btn-primary" onclick="addCustomer()">➕ Thêm khách hàng</button>
+                </div>
+            </div>
+            <table class="table table-bordered text-center" id="customerTable">
+                <thead class="table-dark">
+                <tr>
+                    <th>STT</th>
+                    <th>Tên Khách Hàng</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Mã Khách Hàng</th>
+                    <th>Trạng Thái</th>
+                    <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="customer, stat : ${customers}">
+                    <td th:text="${stat.count}"></td>
+                    <td th:text="${customer.name}"></td>
+                    <td th:text="${customer.phone}"></td>
+                    <td th:text="${customer.customerCode}"></td>
+                    <td th:text="${customer.status}"></td>
+                    <td>
+                        <button class="btn btn-outline-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-outline-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            function searchTable() {
+                let input = document.getElementById("searchInput").value.toLowerCase();
+                let rows = document.querySelectorAll("#customerTable tbody tr");
+                rows.forEach(row => {
+                    let text = row.innerText.toLowerCase();
+                    row.style.display = text.includes(input) ? "" : "none";
+                });
+            }
+
+            function sortTable() {
+                let table = document.getElementById("customerTable");
+                let rows = Array.from(table.rows).slice(1);
+                let sortOrder = document.getElementById("sortSelect").value;
+                if (!sortOrder) return;
+
+                rows.sort((rowA, rowB) => {
+                    let cellA = rowA.cells[1].innerText.trim().toLowerCase();
+                    let cellB = rowB.cells[1].innerText.trim().toLowerCase();
+                    return sortOrder === "asc" ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+                });
+                table.tBodies[0].append(...rows);
+            }
+
+            function addCustomer() {
+                alert("Chức năng thêm khách hàng đang được phát triển!");
+            }
+        </script>
+
+
+    </div>
+</body>
+</html>
